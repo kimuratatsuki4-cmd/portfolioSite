@@ -1,50 +1,64 @@
 /* Google Fonts */
+/* 日本語フォント Noto Sans JP を追加して読みやすくしています */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
 :root {
-    /* Chic Dark Palette */
+    /* Chic Dark Palette (カラーパレット定義) */
+    /* メイングラデーション: 薄い青から深い紫へ */
     --primary-gradient: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
-    /* Elegant Blue/Purple */
+    /* アクセントグラデーション: ゴールドからオレンジへ */
     --accent-gradient: linear-gradient(135deg, #fad961 0%, #f76b1c 100%);
-    /* Gold/Orange accent */
 
+    /* Glassmorphism Variables (すりガラス表現用の変数) */
     --glass-bg: rgba(30, 30, 40, 0.75);
+    /* 半透明の背景色 */
     --glass-border: rgba(255, 255, 255, 0.1);
+    /* うっすら白い境界線 */
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    /* ぼんやりとした影 */
 
+    /* Text Colors */
     --text-main: #f0f0f0;
+    /* メインテキスト色（ほぼ白） */
     --text-muted: #b0b0b0;
+    /* 控えめなテキスト色（グレー） */
 
+    /* Borders */
     --border-radius-xl: 24px;
     --border-radius-pill: 50px;
 }
 
 body {
     font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+    /* ベースの背景色（Bootstrapデフォルトの上書き用に !important を使用） */
     background: #0f0c29 !important;
-    /* Dark chic mesh gradient */
+    /* Dark chic mesh gradient (背景のメッシュグラデーション) */
     background-image:
         radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
         radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 0.2) 0, transparent 50%),
         radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 0.2) 0, transparent 50%) !important;
     background-color: #0b0b10 !important;
     background-attachment: fixed !important;
+    /* スクロールしても背景を固定 */
     color: var(--text-main) !important;
     line-height: 1.8;
     min-height: 100vh;
 }
 
-/* Glassmorphism Classes */
+/* Glassmorphism Classes (すりガラス風カードの基本スタイル) */
 .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
+    /* 背景をぼかす */
     -webkit-backdrop-filter: blur(12px);
+    /* Safari対応 */
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-xl);
     box-shadow: var(--glass-shadow);
     color: var(--text-main);
 }
 
+/* Glass Navbar (すりガラス風ナビゲーションバー) */
 .glass-nav {
     background: rgba(15, 15, 25, 0.85) !important;
     backdrop-filter: blur(20px);
@@ -52,7 +66,7 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Gradient Text */
+/* Gradient Text (文字色をグラデーションにするクラス) */
 .text-gradient {
     background: var(--accent-gradient);
     -webkit-background-clip: text;
@@ -67,7 +81,7 @@ body {
     background-clip: text;
 }
 
-/* Navbar */
+/* Navbar Tuning */
 .navbar-brand {
     font-weight: 800;
     font-size: 1.5rem;
@@ -84,6 +98,7 @@ body {
     transition: all 0.3s ease;
 }
 
+/* ナビリンクのホバー・アクティブ時のスタイル */
 .nav-link:hover,
 .nav-link.active {
     color: var(--text-main) !important;
@@ -91,7 +106,7 @@ body {
     border-radius: 12px;
 }
 
-/* Hero/Featured Section */
+/* Hero/Featured Section Styling */
 .hero-section {
     padding: 5rem 0;
     position: relative;
@@ -101,12 +116,11 @@ body {
 h1.display-4 {
     font-weight: 800;
     color: var(--text-main);
-    /* Updated to main text color */
     line-height: 1.2;
     letter-spacing: -1.5px;
 }
 
-/* Card Styling */
+/* Card Styling - Hover Effects */
 .card {
     border: none;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -114,6 +128,7 @@ h1.display-4 {
     background-color: transparent !important;
 }
 
+/* ホバー時にカードを浮き上がらせるクラス */
 .hover-lift {
     border-radius: var(--border-radius-xl);
     overflow: hidden;
@@ -127,7 +142,6 @@ h1.display-4 {
     inset: 0;
     z-index: -1;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-    /* Subtler shine */
     border-radius: inherit;
 }
 
@@ -202,21 +216,21 @@ a.text-primary:hover::after {
     width: 100%;
 }
 
-/* Thumbnail Placeholder */
+/* Thumbnail Placeholder (画像の代わりのプレースホルダー背景) */
 .thumb-gradient {
     background: linear-gradient(45deg, #1e1e28 25%, #252530 25%, #252530 50%, #1e1e28 50%, #1e1e28 75%, #252530 75%, #252530 100%);
     background-size: 20px 20px;
     opacity: 0.5;
 }
 
-/* Footer */
+/* Footer Styling */
 footer {
     background: rgba(15, 15, 25, 0.9);
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Text Overrides for Dark Mode */
+/* Text Overrides for Dark Mode (ダークモード用のテキスト色調整) */
 .text-muted {
     color: var(--text-muted) !important;
 }
