@@ -1,86 +1,146 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layout/base}">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <title>About | Tatsuki Kimura</title>
+<head th:replace="~{layout/fragment :: head}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Kate HUB</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS (Static Fallback) -->
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 
 <body>
-    <div layout:fragment="content">
-        <section class="py-5">
-            <div class="container">
-                <div class="text-center mb-5 fade-in-up">
-                    <h2 class="section-title">About Me</h2>
-                </div>
 
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-4 text-center mb-4 mb-lg-0 fade-in-up" style="animation-delay: 0.1s;">
-                        <div class="position-relative d-inline-block">
-                            <div class="glass-card p-3 rounded-circle">
-                                <div class="bg-white rounded-circle d-flex align-items-center justify-content-center"
-                                    style="width: 250px; height: 250px; overflow: hidden;">
-                                    <i class="fas fa-user fa-6x text-light"></i>
+    <!-- Navbar -->
+    <div th:replace="~{layout/fragment :: header}">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-network-wired me-2"></i>Kate HUB
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="skills.html">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="works.html">Works</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-primary btn-sm rounded-pill px-4" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div style="padding-top: 70px;">
+            <section class="py-5">
+                <div class="container">
+                    <div class="text-center mb-5 fade-in-up">
+                        <h2 class="section-title">About Me</h2>
+                    </div>
+
+                    <div class="row align-items-center mb-5">
+                        <div class="col-lg-4 text-center mb-4 mb-lg-0 fade-in-up" style="animation-delay: 0.1s;">
+                            <div class="position-relative d-inline-block">
+                                <div class="glass-card p-3 rounded-circle">
+                                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 250px; height: 250px; overflow: hidden;">
+                                        <i class="fas fa-user fa-6x text-light"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-8 fade-in-up" style="animation-delay: 0.2s;">
-                        <div class="glass-card p-5 h-100">
-                            <span class="badge bg-primary mb-2">Network Specialist</span>
-                            <h3 class="mb-3 fw-bold display-6">木村 建希 <span class="text-muted fs-4 ms-2">(Tatsuki
-                                    Kimura)</span></h3>
-                            <div class="d-flex gap-4 mb-4 text-muted">
-                                <span><i class="fas fa-birthday-cake me-2 text-warning"></i>1998/05/22</span>
-                                <span><i class="fas fa-map-marker-alt me-2 text-danger"></i>Kobe, Hyogo</span>
+                        <div class="col-lg-8 fade-in-up" style="animation-delay: 0.2s;">
+                            <div class="glass-card p-5 h-100">
+                                <span class="badge bg-primary mb-2">Network Specialist</span>
+                                <h3 class="mb-3 fw-bold display-6">木村 建希 <span class="text-muted fs-4 ms-2">(Tatsuki
+                                        Kimura)</span></h3>
+                                <div class="d-flex gap-4 mb-4 text-muted">
+                                    <span><i class="fas fa-birthday-cake me-2 text-warning"></i>1998/05/22</span>
+                                    <span><i class="fas fa-map-marker-alt me-2 text-danger"></i>Kobe, Hyogo</span>
+                                </div>
+                                <hr class="opacity-25 my-4">
+                                <p class="lead fs-5 lh-lg">
+                                    「ネットワークスペシャリストとしての専門性と、Webアプリケーション開発への情熱を併せ持っています。
+                                    堅牢なインフラ知識をベースに、モダンで使いやすいWeb体験を提供することを目指しています。
+                                    趣味はサッカー観戦。週末はスタジアムの熱気からエネルギーをもらっています。」
+                                </p>
                             </div>
-                            <hr class="opacity-25 my-4">
-                            <p class="lead fs-5 lh-lg">
-                                「ネットワークスペシャリストとしての専門性と、Webアプリケーション開発への情熱を併せ持っています。
-                                堅牢なインフラ知識をベースに、モダンで使いやすいWeb体験を提供することを目指しています。
-                                趣味はサッカー観戦。週末はスタジアムの熱気からエネルギーをもらっています。」
-                            </p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Career Timeline -->
-                <div class="row justify-content-center fade-in-up" style="animation-delay: 0.3s;">
-                    <div class="col-lg-10">
-                        <h4 class="mb-4 ps-3 border-start border-4 border-primary fw-bold">Career History</h4>
-                        <div class="glass-card p-5">
-                            <ul class="list-unstyled border-start ps-4 border-2 border-primary position-relative"
-                                style="margin-left: 10px;">
-                                <li class="mb-5 position-relative">
-                                    <span
-                                        class="position-absolute start-0 top-0 translate-middle bg-primary border border-4 border-white rounded-circle shadow-sm"
-                                        style="width: 20px; height: 20px; margin-left: -1px;"></span>
-                                    <h5 class="fw-bold mb-1 fs-4">現在</h5>
-                                    <p class="text-primary fw-bold mb-2">日経大手SIer 勤務</p>
-                                    <p class="text-muted">ネットワークスペシャリストとして、大規模ネットワークの設計・構築に従事。<br>クラウドインフラ(AWS)の導入支援も担当。
-                                    </p>
-                                </li>
-                                <li class="mb-5 position-relative">
-                                    <span
-                                        class="position-absolute start-0 top-0 translate-middle bg-white border border-4 border-secondary rounded-circle"
-                                        style="width: 20px; height: 20px; margin-left: -1px;"></span>
-                                    <h5 class="fw-bold mb-1 fs-5">2021年4月</h5>
-                                    <p class="text-dark mb-1">株式会社NTTデータ関西 入社</p>
-                                </li>
-                                <li class="mb-0 position-relative">
-                                    <span
-                                        class="position-absolute start-0 top-0 translate-middle bg-white border border-4 border-secondary rounded-circle"
-                                        style="width: 20px; height: 20px; margin-left: -1px;"></span>
-                                    <h5 class="fw-bold mb-1 fs-5">2021年3月</h5>
-                                    <p class="text-dark mb-1">兵庫県立大学 経営学部 組織経営学科 卒業</p>
-                                </li>
-                            </ul>
+                    <!-- Career Timeline -->
+                    <div class="row justify-content-center fade-in-up" style="animation-delay: 0.3s;" id="history">
+                        <div class="col-lg-10">
+                            <h4 class="mb-4 ps-3 border-start border-4 border-primary fw-bold">Career History</h4>
+                            <div class="glass-card p-5">
+                                <ul class="list-unstyled border-start ps-4 border-2 border-primary position-relative"
+                                    style="margin-left: 10px;">
+                                    <li class="mb-5 position-relative">
+                                        <span
+                                            class="position-absolute start-0 top-0 translate-middle bg-primary border border-4 border-white rounded-circle shadow-sm"
+                                            style="width: 20px; height: 20px; margin-left: -1px;"></span>
+                                        <h5 class="fw-bold mb-1 fs-4">現在</h5>
+                                        <p class="text-primary fw-bold mb-2">日経大手SIer 勤務</p>
+                                        <p class="text-muted">
+                                            ネットワークスペシャリストとして、大規模ネットワークの設計・構築に従事。<br>クラウドインフラ(AWS)の導入支援も担当。
+                                        </p>
+                                    </li>
+                                    <li class="mb-5 position-relative">
+                                        <span
+                                            class="position-absolute start-0 top-0 translate-middle bg-white border border-4 border-secondary rounded-circle"
+                                            style="width: 20px; height: 20px; margin-left: -1px;"></span>
+                                        <h5 class="fw-bold mb-1 fs-5">2021年4月</h5>
+                                        <p class="text-dark mb-1">株式会社NTTデータ関西 入社</p>
+                                    </li>
+                                    <li class="mb-0 position-relative">
+                                        <span
+                                            class="position-absolute start-0 top-0 translate-middle bg-white border border-4 border-secondary rounded-circle"
+                                            style="width: 20px; height: 20px; margin-left: -1px;"></span>
+                                        <h5 class="fw-bold mb-1 fs-5">2021年3月</h5>
+                                        <p class="text-dark mb-1">兵庫県立大学 経営学部 組織経営学科 卒業</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer th:replace="~{layout/fragment :: footer}" class="mt-5 text-center">
+        <div class="container">
+            <p class="mb-0 text-muted">&copy; 2024 Tatsuki Kimura. All Rights Reserved.</p>
+            <div class="mt-2">
+                <a href="#" class="text-muted me-3"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-muted"><i class="fab fa-linkedin"></i></a>
             </div>
-        </section>
-    </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/js/scripts.js"></script>
+    </footer>
+
 </body>
 
 </html>
