@@ -8,34 +8,162 @@
 
 <body>
     <div layout:fragment="content">
-        <!-- Hero Section -->
-        <section class="hero-section d-flex align-items-center" style="min-height: 100vh; padding-top: 80px;">
+        <!-- Featured Hero Section -->
+        <section class="bg-light py-5">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0 fade-in-up">
-                        <span
-                            class="d-inline-block py-1 px-3 rounded-pill bg-light text-primary fw-bold mb-3 shadow-sm border border-primary">
-                            <i class="fas fa-code me-2"></i>Network Specialist & Developer
-                        </span>
-                        <h1 class="hero-title">
-                            Connecting World<br>
-                            Creating Future
-                        </h1>
-                        <p class="hero-subtitle">
-                            確かなインフラ技術とWeb開発への情熱で、新しい価値を創造します。<br>
-                            「あなた」のビジョンを技術で形にするパートナー。
-                        </p>
-                        <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                            <a th:href="@{/works}" class="btn btn-primary btn-lg px-5">View Works</a>
-                            <a th:href="@{/about}"
-                                class="btn btn-outline-dark btn-lg rounded-pill px-5 border-2 fw-bold">About Me</a>
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7">
+                        <h1 class="display-4 fw-bold mb-3" style="font-style: italic;">Title of a longer<br>featured
+                            blog post</h1>
+                        <p class="lead text-muted">Multiple lines of text that form the lede, informing new readers
+                            quickly and efficiently about what's most interesting in this post's contents.</p>
+                        <a href="#" class="text-decoration-none fw-bold">Continue reading <i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Posts Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Featured Post 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm hover-lift">
+                            <div class="bg-secondary"
+                                style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                                <span class="text-white fw-bold">Thumbnail</span>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge bg-primary mb-2">World</span>
+                                <h5 class="card-title fw-bold">Featured post</h5>
+                                <p class="text-muted small mb-2">Nov 12</p>
+                                <p class="card-text text-muted small">This is a wider card with supporting text below as
+                                    a natural lead in to additional content.</p>
+                                <a href="#" class="text-decoration-none fw-bold text-primary">Continue reading <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 text-center fade-in-up" style="animation-delay: 0.2s;">
-                        <div class="position-relative">
-                            <div class="glass-card p-2 d-inline-block">
-                                <img src="https://placehold.co/500x500/0061ff/ffffff?text=Portfolio+v2&font=outfit"
-                                    alt="Hero Image" class="img-fluid rounded-4">
+
+                    <!-- Featured Post 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm hover-lift">
+                            <div class="bg-secondary"
+                                style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                                <span class="text-white fw-bold">Thumbnail</span>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">Design</span>
+                                <h5 class="card-title fw-bold">Post title</h5>
+                                <p class="text-muted small mb-2">Nov 11</p>
+                                <p class="card-text text-muted small">This is a wider card with supporting text below as
+                                    a natural lead in to additional content.</p>
+                                <a href="#" class="text-decoration-none fw-bold text-primary">Continue reading <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spacer for layout -->
+                    <div class="col-lg-4 d-none d-lg-block"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Posts Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- From the Firehouse Section -->
+                        <h4 class="fw-bold mb-4" style="font-style: italic;">From the Firehouse</h4>
+
+                        <!-- Blog Post 1 -->
+                        <article class="mb-5">
+                            <h2 class="display-5 fw-bold mb-3">Sample blog post</h2>
+                            <p class="text-muted mb-3">
+                                <small>January 1, 2023 by <a href="#" class="text-decoration-none">Mark</a></small>
+                            </p>
+                            <p class="text-muted">This blog post shows a few different types of content that's supported
+                                and styled with Bootstrap. Basic typography, lists, and code are all supported as
+                                expected.</p>
+                            <p class="text-muted">This is some additional paragraph placeholder content. It has been
+                                written to fill the available space and show how a longer snippet of text affects the
+                                surrounding content. We'll repeat it often to keep the demonstration flowing, so be on
+                                the lookout for this exact string of text.</p>
+                            <blockquote class="blockquote ps-4 border-start border-3 border-secondary my-4">
+                                <p class="mb-0">Quoted text goes here.</p>
+                            </blockquote>
+                            <p class="text-muted">This is some additional paragraph placeholder content. It has been
+                                written to fill the available space and show how a longer snippet of text affects the
+                                surrounding content. We'll repeat it often to keep the demonstration flowing, so be on
+                                the lookout for this exact string of text.</p>
+                        </article>
+
+                        <hr class="my-5">
+
+                        <!-- Blog Post 2 -->
+                        <article class="mb-5">
+                            <h2 class="display-5 fw-bold mb-3">Another blog post</h2>
+                            <p class="text-muted mb-3">
+                                <small>December 23, 2022 by <a href="#" class="text-decoration-none">Jacob</a></small>
+                            </p>
+                            <p class="text-muted">This is a second blog post. It shows similar content blocks, with
+                                additional examples of components and styling.</p>
+                            <p class="text-muted">This is some additional paragraph placeholder content. It has been
+                                written to fill the available space and show how a longer snippet of text affects the
+                                surrounding content.</p>
+                        </article>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4 ps-lg-5">
+                        <!-- About Section -->
+                        <div class="mb-5">
+                            <h5 class="fw-bold mb-3">About</h5>
+                            <p class="text-muted small">Customize this section to tell your visitors a little bit about
+                                your publication, writers, content or something else entirely. Totally up to you.</p>
+                        </div>
+
+                        <!-- Recent Posts -->
+                        <div>
+                            <h5 class="fw-bold mb-3">Recent posts</h5>
+
+                            <!-- Recent Post 1 -->
+                            <div class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex gap-3">
+                                    <div class="bg-secondary rounded"
+                                        style="width: 60px; height: 60px; flex-shrink: 0;"></div>
+                                    <div style="min-width: 0;">
+                                        <h6 class="fw-bold text-dark small mb-2">Example blog post title</h6>
+                                        <small class="text-muted">January 15, 2023</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Post 2 -->
+                            <div class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex gap-3">
+                                    <div class="bg-secondary rounded"
+                                        style="width: 60px; height: 60px; flex-shrink: 0;"></div>
+                                    <div style="min-width: 0;">
+                                        <h6 class="fw-bold text-dark small mb-2">This is another blog post title</h6>
+                                        <small class="text-muted">January 14, 2023</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Post 3 -->
+                            <div class="d-flex gap-3">
+                                <div class="bg-secondary rounded" style="width: 60px; height: 60px; flex-shrink: 0;">
+                                </div>
+                                <div style="min-width: 0;">
+                                    <h6 class="fw-bold text-dark small mb-2">Longer blog post title: This one has
+                                        multiple lines!</h6>
+                                    <small class="text-muted">January 13, 2023</small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -43,28 +171,18 @@
             </div>
         </section>
 
-        <!-- News Section -->
-        <section class="py-5">
+        <!-- Blockquotes Section -->
+        <section class="py-5 bg-light">
             <div class="container">
-                <div class="glass-card p-5 fade-in-up" style="animation-delay: 0.4s;">
-                    <div class="row align-items-center">
-                        <div class="col-md-4 text-center text-md-start">
-                            <h2 class="section-title mb-0" style="font-size: 2rem;">Latest News</h2>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="list-group list-group-flush bg-transparent">
-                                <div class="list-group-item bg-transparent border-bottom border-light py-3">
-                                    <div class="d-flex w-100 justify-content-between align-items-center">
-                                        <h5 class="mb-0 fw-bold text-dark">Portfolio Site Renewed</h5>
-                                        <span class="badge bg-primary rounded-pill">NEW</span>
-                                    </div>
-                                    <small class="text-muted d-block mt-1">2026/01/05 - デザインを全面リニューアルしました。</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="display-5 fw-bold mb-4">Blockquotes</h2>
+                <p class="mb-4">This is an example blockquote in action:</p>
+                <blockquote class="blockquote">
+                    <p class="mb-0">Quoted text goes here.</p>
+                </blockquote>
+                <p class="mt-4">This is some additional paragraph placeholder content. It has been written to fill the
+                    available space and show how a longer snippet of text affects the surrounding content.</p>
             </div>
+        </section>
     </div>
 </body>
 
