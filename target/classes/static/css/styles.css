@@ -111,6 +111,10 @@ body {
     padding: 5rem 0;
     position: relative;
     overflow: hidden;
+    background-image: linear-gradient(rgba(15, 12, 41, 0.85), rgba(15, 12, 41, 0.85)), url('../images/tech_hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* パララックス効果 */
 }
 
 h1.display-4 {

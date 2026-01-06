@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/fragment :: head}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Kate HUB</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div th:replace="~{layout/fragment :: header}"></div>
+
+    <main>
+        <div style="padding-top: 80px;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- Main Feed (Timeline) -->
+                    <div class="col-lg-7">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <h2 class="fw-bold mb-0 text-white">Home</h2>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+
+                        <!-- Tweet Input Area (Dummy) -->
+                        <div class="glass-card p-3 mb-4 d-none d-md-block">
+                            <div class="d-flex gap-3">
+                                <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; overflow:hidden;">
+                                    <img src="/images/profile.png" alt="User" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://via.placeholder.com/48'">
+                                </div>
+                                <div class="w-100">
+                                    <input type="text" class="form-control bg-transparent border-0 text-white" placeholder="What is happening?!">
+                                    <div class="d-flex justify-content-between align-items-center mt-3 border-top border-secondary pt-3">
+                                        <div class="text-primary d-flex gap-3">
+                                            <i class="far fa-image"></i>
+                                            <i class="fas fa-chart-bar"></i>
+                                            <i class="far fa-smile"></i>
+                                            <i class="far fa-calendar-alt"></i>
+                                        </div>
+                                        <button class="btn btn-primary rounded-pill px-4 btn-sm fw-bold" disabled>Post</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Article List -->
+                        <div class="d-flex flex-column gap-3">
+                            <!-- Article Item -->
+                            <div th:each="article : ${articles}" class="glass-card p-3 hover-effect cursor-pointer" style="cursor: pointer; transition: background 0.2s;">
+                                <div class="d-flex gap-3">
+                                    <!-- User Icon -->
+                                    <div class="flex-shrink-0">
+                                        <div class="rounded-circle bg-dark d-flex align-items-center justify-content-center overflow-hidden" style="width: 48px; height: 48px;">
+                                            <i class="fas fa-user-astronaut fa-lg text-white" th:if="${article.authorName != 'Kate'}"></i>
+                                            <img src="/images/profile.png" alt="Kate" style="width:100%; height:100%; object-fit:cover;" th:if="${article.authorName == 'Kate'}">
+                                        </div>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="w-100">
+                                        <!-- Header -->
+                                        <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="fw-bold text-white" th:text="${article.authorName}">Author Name</span>
+                                            <span class="text-muted small" th:text="${article.authorId}">@userid</span>
+                                            <span class="text-muted small">·</span>
+                                            <span class="text-muted small" th:text="${#temporals.format(article.createdAt, 'MMM d')}">Date</span>
+                                            <i class="fas fa-ellipsis-h ms-auto text-muted"></i>
+                                        </div>
+
+                                        <!-- Title & Body -->
+                                        <div class="mb-2">
+                                            <h5 class="fw-bold text-white mb-2" th:text="${article.title}">Article Title</h5>
+                                            <p class="text-light mb-0" style="font-size: 0.95rem; line-height: 1.5;" th:text="${article.content}">
+                                                Content...
+                                            </p>
+                                        </div>
+
+                                        <!-- Actions -->
+                                        <div class="d-flex justify-content-between text-muted mt-3" style="max-width: 400px;">
+                                            <div class="action-item d-flex align-items-center gap-2 hover-blue">
+                                                <i class="far fa-comment"></i>
+                                                <span class="small">5</span>
+                                            </div>
+                                            <div class="action-item d-flex align-items-center gap-2 hover-green">
+                                                <i class="fas fa-retweet"></i>
+                                                <span class="small" th:text="${article.retweets}">10</span>
+                                            </div>
+                                            <div class="action-item d-flex align-items-center gap-2 hover-red">
+                                                <i class="far fa-heart"></i>
+                                                <span class="small" th:text="${article.likes}">20</span>
+                                            </div>
+                                            <div class="action-item d-flex align-items-center gap-2 hover-blue">
+                                                <i class="far fa-chart-bar"></i>
+                                                <span class="small">1.2K</span>
+                                            </div>
+                                            <div class="action-item hover-blue">
+                                                <i class="far fa-share-square"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Sidebar (Trends) -->
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="position-sticky" style="top: 100px;">
+                            <div class="glass-card py-3 px-0">
+                                <h5 class="fw-bold px-3 mb-3 text-white">Trends for you</h5>
+                                
+                                <div class="px-3 py-2 hover-bg-light">
+                                    <small class="text-muted d-block">Technology · Trending</small>
+                                    <h6 class="fw-bold text-white mb-0">#Java21</h6>
+                                    <small class="text-muted">50.4K posts</small>
+                                </div>
+                                <div class="px-3 py-2 hover-bg-light">
+                                    <small class="text-muted d-block">Programming · Trending</small>
+                                    <h6 class="fw-bold text-white mb-0">Spring Boot</h6>
+                                    <small class="text-muted">125K posts</small>
+                                </div>
+                                <div class="px-3 py-2 hover-bg-light">
+                                    <small class="text-muted d-block">Design · Trending</small>
+                                    <h6 class="fw-bold text-white mb-0">#Glassmorphism</h6>
+                                    <small class="text-muted">15.2K posts</small>
+                                </div>
+                                <div class="px-3 py-3">
+                                    <a href="#" class="text-primary text-decoration-none">Show more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+     <!-- 固定フッターだとTwitterっぽくないので、今回は標準フッターを使うか、あるいはモバイル向けボトムナビにするかだが、PC向けに標準レイアウトでいく -->
+    <!--  <footer th:replace="~{layout/fragment :: footer}" class="mt-5 text-center"></footer> -->
+    <!-- Twitterライクにするためフッターはあえてシンプルにするか、消す -->
+
+    <style>
+        /* Local Tweet-like Styles */
+        .hover-bg-light:hover {
+            background-color: rgba(255,255,255,0.05);
+            cursor: pointer;
+        }
+        .action-item {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .hover-blue:hover { color: #1d9bf0 !important; }
+        .hover-green:hover { color: #00ba7c !important; }
+        .hover-red:hover { color: #f91880 !important; }
+    </style>
+</body>
+
+</html>

@@ -7,3 +7,23 @@ CREATE TABLE IF NOT EXISTS contacts (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE IF NOT EXISTS comments (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50) DEFAULT '名無しさん',
+    content TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS articles (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    author_name VARCHAR(255),
+    author_id VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    likes INT DEFAULT 0,
+    retweets INT DEFAULT 0,
+    PRIMARY KEY (id)
+);
