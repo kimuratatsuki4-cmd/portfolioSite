@@ -1,6 +1,0 @@
-com\kimura\portfolio\controller\ContactController.class
-com\kimura\portfolio\entity\Contact.class
-com\kimura\portfolio\service\ContactService.class
-com\kimura\portfolio\controller\PageController.class
-com\kimura\portfolio\PortfolioApplication.class
-com\kimura\portfolio\repository\ContactRepository.class
