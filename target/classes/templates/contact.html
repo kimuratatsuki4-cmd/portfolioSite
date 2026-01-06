@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/base}">
+
+<head>
+    <title>Contact | Tatsuki Kimura</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5 fade-in-up">
+                    <h2 class="section-title">Contact</h2>
+                    <p class="text-muted">お仕事のご依頼やご相談など、お気軽にお問い合わせください。</p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="glass-card p-5">
+                            <form th:action="@{/contact}" th:object="${contact}" method="post" novalidate>
+
+                                <div class="mb-4">
+                                    <label for="name" class="form-label fw-bold small text-muted text-uppercase">お名前
+                                        <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-lg bg-light border-0" id="name"
+                                        th:field="*{name}" placeholder="山田 太郎"
+                                        th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+                                    <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}"
+                                        th:errors="*{name}">
+                                        Error Message
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="email"
+                                        class="form-label fw-bold small text-muted text-uppercase">メールアドレス <span
+                                            class="text-danger">*</span></label>
+                                    <input type="email" class="form-control form-control-lg bg-light border-0"
+                                        id="email" th:field="*{email}" placeholder="name@example.com"
+                                        th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''">
+                                    <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}"
+                                        th:errors="*{email}">
+                                        Error Message
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="subject"
+                                        class="form-label fw-bold small text-muted text-uppercase">件名</label>
+                                    <input type="text" class="form-control form-control-lg bg-light border-0"
+                                        id="subject" th:field="*{subject}" placeholder="件名をご入力ください"
+                                        th:classappend="${#fields.hasErrors('subject')} ? 'is-invalid' : ''">
+                                    <div class="invalid-feedback" th:if="${#fields.hasErrors('subject')}"
+                                        th:errors="*{subject}">
+                                        Error Message
+                                    </div>
+                                </div>
+
+                                <div class="mb-5">
+                                    <label for="message"
+                                        class="form-label fw-bold small text-muted text-uppercase">お問い合わせ内容 <span
+                                            class="text-danger">*</span></label>
+                                    <textarea class="form-control form-control-lg bg-light border-0" id="message"
+                                        rows="6" th:field="*{message}" placeholder="内容を詳しくご入力ください"
+                                        th:classappend="${#fields.hasErrors('message')} ? 'is-invalid' : ''"></textarea>
+                                    <div class="invalid-feedback" th:if="${#fields.hasErrors('message')}"
+                                        th:errors="*{message}">
+                                        Error Message
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit"
+                                        class="btn btn-primary btn-lg px-5 w-100 rounded-pill shadow-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>送信する
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

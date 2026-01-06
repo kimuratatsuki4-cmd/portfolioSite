@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\tatsuki\.gemini\antigravity\scratch\portfolio-site\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1308342696.index
+1880799950.index
+1407361229.index
+1067094681.index
+3896847633.index
+175712137.index

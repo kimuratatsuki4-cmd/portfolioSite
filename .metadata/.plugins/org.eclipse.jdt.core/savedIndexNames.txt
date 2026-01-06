@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\tatsuki\.gemini\antigravity\scratch\portfolio-site\.metadata\.plugins\org.eclipse.jdt.core
+2145205572.index
+1865797976.index
+1067094681.index
