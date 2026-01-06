@@ -6,8 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PageController {
 
+    private final com.kimura.portfolio.service.CommentService commentService;
+
+    public PageController(com.kimura.portfolio.service.CommentService commentService) {
+        this.commentService = commentService;
+    }
+
     @GetMapping("/")
-    public String index() {
+    public String index(org.springframework.ui.Model model) {
+        model.addAttribute("latestComments", commentService.getLatestComments());
         return "index";
     }
 

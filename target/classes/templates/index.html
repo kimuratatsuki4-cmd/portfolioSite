@@ -188,13 +188,12 @@
                                 <!-- Comment Form (コメント投稿フォーム) -->
                                 <div class="mb-5">
                                     <h5 class="fw-bold mb-3 small text-muted text-uppercase">Leave a Comment</h5>
-                                    <form onsubmit="event.preventDefault(); alert('コメント機能は現在デモ版です。');">
+                                    <form id="commentForm">
                                         <div class="mb-3">
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Name"
-                                                required>
+                                            <input type="text" id="commentName" class="form-control bg-light border-0" placeholder="Name (Optional)">
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control bg-light border-0" rows="3"
+                                            <textarea id="commentContent" class="form-control bg-light border-0" rows="3"
                                                 placeholder="Your comment..." required></textarea>
                                         </div>
                                         <button type="submit" class="btn btn-primary rounded-pill px-4 btn-sm">Post
@@ -203,11 +202,11 @@
                                 </div>
 
                                 <!-- Recent Comments List (コメント一覧) -->
-                                <div>
+                                <div id="commentList">
                                     <h5 class="fw-bold mb-4 small text-muted text-uppercase">Recent Comments</h5>
 
-                                    <!-- Comment 1 -->
-                                    <div class="d-flex gap-3 mb-4">
+                                    <!-- Thymeleaf Loop -->
+                                    <div th:each="comment : ${latestComments}" class="d-flex gap-3 mb-4 comment-item">
                                         <div class="flex-shrink-0">
                                             <div class="rounded-circle bg-secondary bg-opacity-10 d-flex align-items-center justify-content-center"
                                                 style="width: 40px; height: 40px;">
@@ -215,26 +214,15 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <h6 class="fw-bold mb-1">User A <small class="text-muted ms-2 fw-normal"
-                                                    style="font-size: 0.8rem;">Jan 6, 2026</small></h6>
-                                            <p class="text-muted small mb-0">for test</p>
+                                            <h6 class="fw-bold mb-1">
+                                                <span th:text="${comment.name}">User Name</span>
+                                                <small class="text-muted ms-2 fw-normal" style="font-size: 0.8rem;" th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}">Date</small>
+                                            </h6>
+                                            <p class="text-muted small mb-0" th:text="${comment.content}">Comment Content</p>
                                         </div>
                                     </div>
+                                    <!-- End Thymeleaf Loop -->
 
-                                    <!-- Comment 2 -->
-                                    <div class="d-flex gap-3">
-                                        <div class="flex-shrink-0">
-                                            <div class="rounded-circle bg-secondary bg-opacity-10 d-flex align-items-center justify-content-center"
-                                                style="width: 40px; height: 40px;">
-                                                <i class="fas fa-user text-secondary"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <h6 class="fw-bold mb-1">Dev <small class="text-muted ms-2 fw-normal"
-                                                    style="font-size: 0.8rem;">Jan 6, 2026</small></h6>
-                                            <p class="text-muted small mb-0">for test</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -305,6 +293,7 @@
     <!-- th:replace で layout/fragment.html の footer フラグメントを読み込みます -->
     <footer th:replace="~{layout/fragment :: footer}" class="mt-5 text-center"></footer>
 
+    <script src="/js/comment.js"></script>
 </body>
 
 </html>
