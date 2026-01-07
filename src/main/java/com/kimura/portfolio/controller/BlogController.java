@@ -17,8 +17,12 @@ public class BlogController {
     }
 
     @GetMapping
-    public String blog(Model model) {
-        model.addAttribute("articles", articleService.getAllArticles());
+    public String blog(
+            @org.springframework.web.bind.annotation.RequestParam(name = "showAll", defaultValue = "false") boolean showAll,
+            Model model) {
+        System.out.println("Requested blog with showAll=" + showAll); // Debug log
+        model.addAttribute("articles", articleService.getArticles(showAll));
+        model.addAttribute("showAll", showAll);
         return "blog";
     }
 }

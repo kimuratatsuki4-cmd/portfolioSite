@@ -107,6 +107,20 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Show All Button -->
+                        <div class="mt-4 text-center" th:if="${!showAll}">
+                             <a th:href="@{/blog(showAll=true)}" class="btn btn-outline-primary rounded-pill px-5 py-2 fw-bold">
+                                 Show all articles
+                             </a>
+                        </div>
+                        
+                        <!-- Show Less Button (Optional, to go back) -->
+                        <div class="mt-4 text-center" th:if="${showAll}">
+                             <a th:href="@{/blog(showAll=false)}" class="btn btn-outline-secondary rounded-pill px-5 py-2 fw-bold">
+                                 Show less
+                             </a>
+                        </div>
 
                     </div>
 

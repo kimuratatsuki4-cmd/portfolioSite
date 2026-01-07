@@ -8,13 +8,22 @@ public class PageController {
 
     private final com.kimura.portfolio.service.CommentService commentService;
 
-    public PageController(com.kimura.portfolio.service.CommentService commentService) {
+    private final com.kimura.portfolio.service.GithubService githubService;
+    private final com.kimura.portfolio.service.ArticleService articleService;
+
+    public PageController(com.kimura.portfolio.service.CommentService commentService,
+            com.kimura.portfolio.service.GithubService githubService,
+            com.kimura.portfolio.service.ArticleService articleService) {
         this.commentService = commentService;
+        this.githubService = githubService;
+        this.articleService = articleService;
     }
 
     @GetMapping("/")
     public String index(org.springframework.ui.Model model) {
         model.addAttribute("latestComments", commentService.getLatestComments());
+        // トップページは最新4件だけを表示
+        model.addAttribute("articles", articleService.getArticles(false));
         return "index";
     }
 
@@ -29,7 +38,8 @@ public class PageController {
     }
 
     @GetMapping("/works")
-    public String works() {
+    public String works(org.springframework.ui.Model model) {
+        model.addAttribute("works", githubService.getRepositories());
         return "works";
     }
 }

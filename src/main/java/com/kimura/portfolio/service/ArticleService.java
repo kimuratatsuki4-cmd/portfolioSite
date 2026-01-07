@@ -18,7 +18,11 @@ public class ArticleService {
     }
 
     @Transactional(readOnly = true)
-    public List<Article> getAllArticles() {
-        return articleRepository.findAllByOrderByCreatedAtDesc();
+    public List<Article> getArticles(boolean showAll) {
+        if (showAll) {
+            return articleRepository.findAllByOrderByCreatedAtDesc();
+        } else {
+            return articleRepository.findTop4ByOrderByCreatedAtDesc();
+        }
     }
 }

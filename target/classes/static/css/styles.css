@@ -246,3 +246,62 @@ footer {
 article h2 {
     color: var(--text-main);
 }
+/* Language/Tech Badges */
+.badge-tech {
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.badge-java {
+    color: #e76f00 !important;
+    background-color: rgba(231, 111, 0, 0.1) !important;
+    border-color: rgba(231, 111, 0, 0.3) !important;
+}
+
+.badge-javascript, .badge-js {
+    color: #f7df1e !important;
+    background-color: rgba(247, 223, 30, 0.1) !important;
+    border-color: rgba(247, 223, 30, 0.3) !important;
+}
+
+.badge-typescript, .badge-ts {
+    color: #3178c6 !important;
+    background-color: rgba(49, 120, 198, 0.1) !important;
+    border-color: rgba(49, 120, 198, 0.3) !important;
+}
+
+.badge-html {
+    color: #e34c26 !important;
+    background-color: rgba(227, 76, 38, 0.1) !important;
+    border-color: rgba(227, 76, 38, 0.3) !important;
+}
+
+.badge-css {
+    color: #563d7c !important;
+    background-color: rgba(86, 61, 124, 0.1) !important;
+    border-color: rgba(86, 61, 124, 0.3) !important;
+}
+
+.badge-python {
+    color: #3572a5 !important;
+    background-color: rgba(53, 114, 165, 0.1) !important;
+    border-color: rgba(53, 114, 165, 0.3) !important;
+}
+
+.badge-springboot, .badge-spring {
+    color: #6db33f !important;
+    background-color: rgba(109, 179, 63, 0.1) !important;
+    border-color: rgba(109, 179, 63, 0.3) !important;
+}
+
+.badge-docker {
+    color: #2496ed !important;
+    background-color: rgba(36, 150, 237, 0.1) !important;
+    border-color: rgba(36, 150, 237, 0.3) !important;
+}
+
+.badge-default {
+    color: #a8c0ff !important;
+    background-color: rgba(168, 192, 255, 0.1) !important;
+    border-color: rgba(168, 192, 255, 0.3) !important;
+}
