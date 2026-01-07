@@ -14,14 +14,17 @@ public class ContactService {
     private final ContactRepository contactRepository;
     private final JavaMailSender javaMailSender;
     private final String adminEmail;
+    private final String fromEmail;
 
     // JavaMailSenderと管理者メールアドレスをコンストラクタインジェクションで受け取ります
     public ContactService(ContactRepository contactRepository,
             JavaMailSender javaMailSender,
-            @Value("${portfolio.admin.email}") String adminEmail) {
+            @Value("${portfolio.admin.email}") String adminEmail,
+            @Value("${portfolio.mail.from}") String fromEmail) {
         this.contactRepository = contactRepository;
         this.javaMailSender = javaMailSender;
         this.adminEmail = adminEmail;
+        this.fromEmail = fromEmail;
     }
 
     @Transactional
@@ -39,7 +42,7 @@ public class ContactService {
     // 管理者への通知メールを作成・送信するメソッド
     private void sendNotificationEmail(Contact contact) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("hello@demomailtrap.com"); // Mailtrapのデフォルト送信元（必要に応じて変更可）
+        message.setFrom(fromEmail); // Mailtrapのデフォルト送信元（必要に応じて変更可）
         message.setTo(adminEmail);
         message.setSubject("【Portfolio】お問い合わせがありました");
         message.setText("以下のお問い合わせを受け付けました。\n\n" +
@@ -54,7 +57,7 @@ public class ContactService {
     // ユーザーへの自動返信メールを作成・送信するメソッド
     private void sendAutoReplyEmail(Contact contact) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("hello@demomailtrap.com"); // Mailtrapのデフォルト送信元
+        message.setFrom(fromEmail); // Mailtrapのデフォルト送信元
         message.setTo(contact.getEmail()); // フォームに入力されたメールアドレス宛に送信
         message.setSubject("【自動返信】お問い合わせありがとうございます");
         message.setText(contact.getName() + " 様\n\n" +
