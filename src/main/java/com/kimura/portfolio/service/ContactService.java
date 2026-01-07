@@ -35,7 +35,12 @@ public class ContactService {
         contactRepository.save(contact);
 
         // 2. 管理者へ通知メール送信（これは必ず送りたい）
-        sendNotificationEmail(contact);
+        // Sandbox環境等の制限で送れない場合でも、ユーザーに500エラーを表示しないようCatchする
+        try {
+            sendNotificationEmail(contact);
+        } catch (MailException e) {
+            System.err.println("管理者への通知メール送信に失敗しました: " + e.getMessage());
+        }
 
         // 3. ユーザーへ自動返信メール送信
         // 【重要】Mailgun Sandbox環境では、未許可のアドレスへ送ると例外が発生します。
