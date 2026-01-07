@@ -1,284 +1,437 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="~{layout/fragment :: head}">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head th:replace="~{layout/fragment :: head}">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kate HUB</title>
     <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- Custom CSS (Static Fallback) -->
-    <link rel="stylesheet" href="../static/css/styles.css">
-</head>
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- Intro Overlay (Server Connect Animation) -->
+    <!-- Kateさん用のサーバー接続演出：詳細は intro.js と styles.css を参照 -->
+    <div id="intro-overlay">
+      <div class="connection-container">
+        <i class="fas fa-laptop pc-icon"></i>
+        <div class="packet-line">
+          <span class="packet-dot"></span>
+        </div>
+        <i class="fas fa-server server-icon"></i>
+      </div>
+      <p id="loading-text">Connecting to Kate's Hub...</p>
+    </div>
 
     <!-- Navbar -->
     <div th:replace="~{layout/fragment :: header}"></div>
 
     <!-- Main Content -->
     <main>
-        <!-- 固定ナビゲーションバーの高さ分の余白を追加 -->
-        <div style="padding-top: 70px;">
+      <!-- 固定ナビゲーションバーの高さ分の余白を追加 -->
+      <div style="padding-top: 70px">
+        <!-- Hero Section (トップのウェルカムメッセージ) -->
+        <section class="hero-section">
+          <div class="container">
+            <div class="row g-5 align-items-center">
+              <div class="col-lg-8">
+                <span class="badge bg-primary mb-3"
+                  >Welcome to my Portfolio</span
+                >
+                <h1 class="display-4 fw-bold mb-4" style="font-style: italic">
+                  <span class="text-gradient-primary">Kate HUB</span
+                  ><br />Portfolio & Blog
+                </h1>
+                <p class="lead text-muted mb-4">
+                  私のポートフォリオと技術ブログをまとめたサイトです。<br />日々の学びや成果物を発信します。
+                </p>
+                <a
+                  href="#blog-section"
+                  class="btn btn-primary rounded-pill px-4 py-2 fw-bold"
+                  >ブログを読む <i class="fas fa-arrow-right ms-2"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <!-- Hero Section (トップのウェルカムメッセージ) -->
-            <section class="hero-section">
-                <div class="container">
-                    <div class="row g-5 align-items-center">
-                        <div class="col-lg-8">
-                            <span class="badge bg-primary mb-3">Welcome to my Portfolio</span>
-                            <h1 class="display-4 fw-bold mb-4" style="font-style: italic;">
-                                <span class="text-gradient-primary">Kate HUB</span><br>Portfolio & Blog
-                            </h1>
-                            <p class="lead text-muted mb-4">私のポートフォリオと技術ブログをまとめたサイトです。<br>日々の学びや成果物を発信します。
-                            </p>
-                            <a href="#blog-section" class="btn btn-primary rounded-pill px-4 py-2 fw-bold">ブログを読む <i
-                                    class="fas fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
+        <!-- Featured Posts Section (カード一覧エリア) -->
+        <section class="py-5">
+          <div class="container">
+            <div class="row g-4">
+              <!-- Card 1: Self Introduction (自己紹介カード) -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 glass-card hover-lift">
+                  <div
+                    class="thumb-gradient"
+                    style="
+                      height: 160px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 24px 24px 0 0;
+                    "
+                  >
+                    <i class="fas fa-user fa-3x text-muted"></i>
+                  </div>
+                  <div class="card-body p-4 text-center">
+                    <h5 class="card-title fw-bold mb-3">Profile</h5>
+                    <p class="card-text text-muted small mb-4">自己紹介</p>
+                    <!-- th:href でAboutページへのリンクを設定 -->
+                    <a
+                      th:href="@{/about}"
+                      class="btn btn-outline-primary rounded-pill btn-sm stretched-link"
+                      >View Detail</a
+                    >
+                  </div>
                 </div>
-            </section>
+              </div>
 
-            <!-- Featured Posts Section (カード一覧エリア) -->
-            <section class="py-5">
-                <div class="container">
-                    <div class="row g-4">
-                        <!-- Card 1: Self Introduction (自己紹介カード) -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 glass-card hover-lift">
-                                <div class="thumb-gradient"
-                                    style="height: 160px; display: flex; align-items: center; justify-content: center; border-radius: 24px 24px 0 0;">
-                                    <i class="fas fa-user fa-3x text-muted"></i>
-                                </div>
-                                <div class="card-body p-4 text-center">
-                                    <h5 class="card-title fw-bold mb-3">Profile</h5>
-                                    <p class="card-text text-muted small mb-4">自己紹介</p>
-                                    <!-- th:href でAboutページへのリンクを設定 -->
-                                    <a th:href="@{/about}"
-                                        class="btn btn-outline-primary rounded-pill btn-sm stretched-link">View
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 2: Works (成果物カード) -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 glass-card hover-lift">
-                                <div class="thumb-gradient"
-                                    style="height: 160px; display: flex; align-items: center; justify-content: center; border-radius: 24px 24px 0 0;">
-                                    <i class="fas fa-laptop-code fa-3x text-muted"></i>
-                                </div>
-                                <div class="card-body p-4 text-center">
-                                    <h5 class="card-title fw-bold mb-3">Works</h5>
-                                    <p class="card-text text-muted small mb-4">成果物</p>
-                                    <a th:href="@{/works}"
-                                        class="btn btn-outline-primary rounded-pill btn-sm stretched-link">View
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: Skills (スキルセットカード) -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 glass-card hover-lift">
-                                <div class="thumb-gradient"
-                                    style="height: 160px; display: flex; align-items: center; justify-content: center; border-radius: 24px 24px 0 0;">
-                                    <i class="fas fa-tools fa-3x text-muted"></i>
-                                </div>
-                                <div class="card-body p-4 text-center">
-                                    <h5 class="card-title fw-bold mb-3">Skills</h5>
-                                    <p class="card-text text-muted small mb-4">スキルセット</p>
-                                    <a th:href="@{/skills}"
-                                        class="btn btn-outline-primary rounded-pill btn-sm stretched-link">View
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 5: Contact (お問い合わせカード) -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 glass-card hover-lift">
-                                <div class="thumb-gradient"
-                                    style="height: 160px; display: flex; align-items: center; justify-content: center; border-radius: 24px 24px 0 0;">
-                                    <i class="fas fa-envelope fa-3x text-muted"></i>
-                                </div>
-                                <div class="card-body p-4 text-center">
-                                    <h5 class="card-title fw-bold mb-3">Contact</h5>
-                                    <p class="card-text text-muted small mb-4">お問い合わせ</p>
-                                    <a th:href="@{/contact}"
-                                        class="btn btn-outline-primary rounded-pill btn-sm stretched-link">View
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 6: Blog (ブログカード) -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 glass-card hover-lift">
-                                <div class="thumb-gradient"
-                                    style="height: 160px; display: flex; align-items: center; justify-content: center; border-radius: 24px 24px 0 0;">
-                                    <i class="fas fa-newspaper fa-3x text-muted"></i>
-                                </div>
-                                <div class="card-body p-4 text-center">
-                                    <h5 class="card-title fw-bold mb-3">Articles</h5>
-                                    <p class="card-text text-muted small mb-4">記事・趣味ブログ</p>
-                                    <a th:href="@{/blog}"
-                                        class="btn btn-outline-primary rounded-pill btn-sm stretched-link">View
-                                        Detail</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+              <!-- Card 2: Works (成果物カード) -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 glass-card hover-lift">
+                  <div
+                    class="thumb-gradient"
+                    style="
+                      height: 160px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 24px 24px 0 0;
+                    "
+                  >
+                    <i class="fas fa-laptop-code fa-3x text-muted"></i>
+                  </div>
+                  <div class="card-body p-4 text-center">
+                    <h5 class="card-title fw-bold mb-3">Works</h5>
+                    <p class="card-text text-muted small mb-4">成果物</p>
+                    <a
+                      th:href="@{/works}"
+                      class="btn btn-outline-primary rounded-pill btn-sm stretched-link"
+                      >View Detail</a
+                    >
+                  </div>
                 </div>
-            </section>
+              </div>
 
-            <!-- Blog Posts Section (ブログ記事・コメントエリア) -->
-            <section class="py-5" id="blog-section">
-                <div class="container">
-                    <div class="row pt-4">
-                        <!-- メインコンテンツカラム -->
-                        <div class="col-lg-8">
-                            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
-                                <h4 class="fw-bold mb-0 text-gradient-primary" style="font-style: italic;">Latest Articles</h4>
-                                <a th:href="@{/blog}" class="btn btn-sm btn-outline-primary rounded-pill">View All</a>
-                            </div>
-
-                            <!-- Blog Post 1: 技術記事コンテンツ -->
-                            <div class="glass-card p-4 mb-5">
-                                <article>
-                                    <h2 class="display-6 fw-bold mb-3">AIコーディングアシスタントの選定について</h2>
-                                    <p class="text-muted mb-3">
-                                        <small><i class="far fa-calendar-alt me-2"></i>January 6, 2026 by <a href="#"
-                                                class="text-decoration-none fw-bold">Kate</a></small>
-                                    </p>
-                                    <p class="text-muted">
-                                        開発効率を飛躍的に向上させるAIツール。その選定のポイントとは？
-                                    </p>
-                                    <p class="text-muted">
-                                        最近のシステム開発において、AIコーディングアシスタントの導入は不可欠になりつつありますよね。（すごい楽ちん）
-                                        GitHub Copilot,
-                                        Cursorなど数多くのツールが登場していますが、選定の鍵となるのは「既存ワークフローとの親和性」と「どれだけVScodeと類似しているか・・」。
-                                        自身のプロジェクトに最適なツールを使いながら見つけるしかない・・・ </p>
-                                </article>
-                            </div>
-
-                            <!-- Comments Section (コメントエリア) -->
-                            <h4 class="fw-bold mb-4 border-bottom pb-2 d-inline-block text-gradient-primary"
-                                style="font-style: italic;">Comments</h4>
-
-                            <div class="glass-card p-4 mb-5">
-                                <!-- Comment Form (コメント投稿フォーム) -->
-                                <div class="mb-5">
-                                    <h5 class="fw-bold mb-3 small text-muted text-uppercase">Leave a Comment</h5>
-                                    <form id="commentForm">
-                                        <div class="mb-3">
-                                            <input type="text" id="commentName" class="form-control bg-light border-0" placeholder="Name (Optional)">
-                                        </div>
-                                        <div class="mb-3">
-                                            <textarea id="commentContent" class="form-control bg-light border-0" rows="3"
-                                                placeholder="Your comment..." required></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary rounded-pill px-4 btn-sm">Post
-                                            Comment</button>
-                                    </form>
-                                </div>
-
-                                <!-- Recent Comments List (コメント一覧) -->
-                                <div id="commentList">
-                                    <h5 class="fw-bold mb-4 small text-muted text-uppercase">Recent Comments</h5>
-
-                                    <!-- Thymeleaf Loop -->
-                                    <div th:each="comment : ${latestComments}" class="d-flex gap-3 mb-4 comment-item">
-                                        <div class="flex-shrink-0">
-                                            <div class="rounded-circle bg-secondary bg-opacity-10 d-flex align-items-center justify-content-center"
-                                                style="width: 40px; height: 40px;">
-                                                <i class="fas fa-user text-secondary"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <h6 class="fw-bold mb-1">
-                                                <span th:text="${comment.name}">User Name</span>
-                                                <small class="text-muted ms-2 fw-normal" style="font-size: 0.8rem;" th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}">Date</small>
-                                            </h6>
-                                            <p class="text-muted small mb-0" th:text="${comment.content}">Comment Content</p>
-                                        </div>
-                                    </div>
-                                    <!-- End Thymeleaf Loop -->
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sidebar (サイドバー：最近の投稿など) -->
-                        <div class="col-lg-4 ps-lg-5">
-                            <div class="position-sticky" style="top: 100px;">
-
-                                <!-- Recent Posts Widget -->
-                                <div class="glass-card p-4">
-                                    <h5 class="fw-bold mb-3 text-gradient-primary">最近の投稿</h5>
-
-                                    <!-- Recent Post 1 -->
-                                    <div class="mb-3 pb-3 border-bottom border-light">
-                                        <div class="d-flex gap-3 align-items-center">
-                                            <div class="thumb-gradient rounded"
-                                                style="width: 50px; height: 50px; flex-shrink: 0;"></div>
-                                            <div style="min-width: 0;">
-                                                <h6 class="fw-bold text-dark small mb-1"><a href="#"
-                                                        class="text-decoration-none text-dark stretched-link">AIコーディングアシスタントの選定基準</a>
-                                                </h6>
-                                                <small class="text-muted" style="font-size: 0.75rem;">Jan 6,
-                                                    2026</small>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Recent Post 2 -->
-                                    <div class="mb-3 pb-3 border-bottom border-light">
-                                        <div class="d-flex gap-3 align-items-center">
-                                            <div class="thumb-gradient rounded"
-                                                style="width: 50px; height: 50px; flex-shrink: 0;"></div>
-                                            <div style="min-width: 0;">
-                                                <h6 class="fw-bold text-dark small mb-1"><a href="#"
-                                                        class="text-decoration-none text-dark stretched-link">This is
-                                                        another blog post title</a></h6>
-                                                <small class="text-muted" style="font-size: 0.75rem;">Jan 14,
-                                                    2023</small>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Recent Post 3 -->
-                                    <div class="d-flex gap-3 align-items-center">
-                                        <div class="thumb-gradient rounded"
-                                            style="width: 50px; height: 50px; flex-shrink: 0;"></div>
-                                        <div style="min-width: 0;">
-                                            <h6 class="fw-bold text-dark small mb-1"><a href="#"
-                                                    class="text-decoration-none text-dark stretched-link">Longer blog
-                                                    post
-                                                    title</a></h6>
-                                            <small class="text-muted" style="font-size: 0.75rem;">Jan 13, 2023</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <!-- Card 4: Skills (スキルセットカード) -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 glass-card hover-lift">
+                  <div
+                    class="thumb-gradient"
+                    style="
+                      height: 160px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 24px 24px 0 0;
+                    "
+                  >
+                    <i class="fas fa-tools fa-3x text-muted"></i>
+                  </div>
+                  <div class="card-body p-4 text-center">
+                    <h5 class="card-title fw-bold mb-3">Skills</h5>
+                    <p class="card-text text-muted small mb-4">スキルセット</p>
+                    <a
+                      th:href="@{/skills}"
+                      class="btn btn-outline-primary rounded-pill btn-sm stretched-link"
+                      >View Detail</a
+                    >
+                  </div>
                 </div>
-            </section>
+              </div>
 
-        </div>
+              <!-- Card 5: Contact (お問い合わせカード) -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 glass-card hover-lift">
+                  <div
+                    class="thumb-gradient"
+                    style="
+                      height: 160px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 24px 24px 0 0;
+                    "
+                  >
+                    <i class="fas fa-envelope fa-3x text-muted"></i>
+                  </div>
+                  <div class="card-body p-4 text-center">
+                    <h5 class="card-title fw-bold mb-3">Contact</h5>
+                    <p class="card-text text-muted small mb-4">お問い合わせ</p>
+                    <a
+                      th:href="@{/contact}"
+                      class="btn btn-outline-primary rounded-pill btn-sm stretched-link"
+                      >View Detail</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6: Blog (ブログカード) -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 glass-card hover-lift">
+                  <div
+                    class="thumb-gradient"
+                    style="
+                      height: 160px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 24px 24px 0 0;
+                    "
+                  >
+                    <i class="fas fa-newspaper fa-3x text-muted"></i>
+                  </div>
+                  <div class="card-body p-4 text-center">
+                    <h5 class="card-title fw-bold mb-3">Articles</h5>
+                    <p class="card-text text-muted small mb-4">
+                      記事・趣味ブログ
+                    </p>
+                    <a
+                      th:href="@{/blog}"
+                      class="btn btn-outline-primary rounded-pill btn-sm stretched-link"
+                      >View Detail</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Blog Posts Section (ブログ記事・コメントエリア) -->
+        <section class="py-5" id="blog-section">
+          <div class="container">
+            <div class="row pt-4">
+              <!-- メインコンテンツカラム -->
+              <div class="col-lg-8">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2"
+                >
+                  <h4
+                    class="fw-bold mb-0 text-gradient-primary"
+                    style="font-style: italic"
+                  >
+                    Latest Articles
+                  </h4>
+                  <a
+                    th:href="@{/blog}"
+                    class="btn btn-sm btn-outline-primary rounded-pill"
+                    >View All</a
+                  >
+                </div>
+
+                <!-- Blog Post 1: 技術記事コンテンツ -->
+                <div class="glass-card p-4 mb-5">
+                  <article>
+                    <h2 class="display-6 fw-bold mb-3">
+                      AIコーディングアシスタントの選定について
+                    </h2>
+                    <p class="text-muted mb-3">
+                      <small
+                        ><i class="far fa-calendar-alt me-2"></i>January 6, 2026
+                        by
+                        <a href="#" class="text-decoration-none fw-bold"
+                          >Kate</a
+                        ></small
+                      >
+                    </p>
+                    <p class="text-muted">
+                      開発効率を飛躍的に向上させるAIツール。その選定のポイントとは？
+                    </p>
+                    <p class="text-muted">
+                      最近のシステム開発において、AIコーディングアシスタントの導入は不可欠になりつつありますよね。（すごい楽ちん）
+                      GitHub Copilot,
+                      Cursorなど数多くのツールが登場していますが、選定の鍵となるのは「既存ワークフローとの親和性」と「どれだけVScodeと類似しているか・・」。
+                      自身のプロジェクトに最適なツールを使いながら見つけるしかない・・・
+                    </p>
+                  </article>
+                </div>
+
+                <!-- Comments Section (コメントエリア) -->
+                <h4
+                  class="fw-bold mb-4 border-bottom pb-2 d-inline-block text-gradient-primary"
+                  style="font-style: italic"
+                >
+                  Comments
+                </h4>
+
+                <div class="glass-card p-4 mb-5">
+                  <!-- Comment Form (コメント投稿フォーム) -->
+                  <div class="mb-5">
+                    <h5 class="fw-bold mb-3 small text-muted text-uppercase">
+                      Leave a Comment
+                    </h5>
+                    <form id="commentForm">
+                      <div class="mb-3">
+                        <input
+                          type="text"
+                          id="commentName"
+                          class="form-control bg-light border-0"
+                          placeholder="Name (Optional)"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <textarea
+                          id="commentContent"
+                          class="form-control bg-light border-0"
+                          rows="3"
+                          placeholder="Your comment..."
+                          required
+                        ></textarea>
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-primary rounded-pill px-4 btn-sm"
+                      >
+                        Post Comment
+                      </button>
+                    </form>
+                  </div>
+
+                  <!-- Recent Comments List (コメント一覧) -->
+                  <div id="commentList">
+                    <h5 class="fw-bold mb-4 small text-muted text-uppercase">
+                      Recent Comments
+                    </h5>
+
+                    <!-- Thymeleaf Loop -->
+                    <div
+                      th:each="comment : ${latestComments}"
+                      class="d-flex gap-3 mb-4 comment-item"
+                    >
+                      <div class="flex-shrink-0">
+                        <div
+                          class="rounded-circle bg-secondary bg-opacity-10 d-flex align-items-center justify-content-center"
+                          style="width: 40px; height: 40px"
+                        >
+                          <i class="fas fa-user text-secondary"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <h6 class="fw-bold mb-1">
+                          <span th:text="${comment.name}">User Name</span>
+                          <small
+                            class="text-muted ms-2 fw-normal"
+                            style="font-size: 0.8rem"
+                            th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}"
+                            >Date</small
+                          >
+                        </h6>
+                        <p
+                          class="text-muted small mb-0"
+                          th:text="${comment.content}"
+                        >
+                          Comment Content
+                        </p>
+                      </div>
+                    </div>
+                    <!-- End Thymeleaf Loop -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sidebar (サイドバー：最近の投稿など) -->
+              <div class="col-lg-4 ps-lg-5">
+                <div class="position-sticky" style="top: 100px">
+                  <!-- Recent Posts Widget -->
+                  <div class="glass-card p-4">
+                    <h5 class="fw-bold mb-3 text-gradient-primary">
+                      最近の投稿
+                    </h5>
+
+                    <!-- Recent Post 1 -->
+                    <div class="mb-3 pb-3 border-bottom border-light">
+                      <div class="d-flex gap-3 align-items-center">
+                        <div
+                          class="thumb-gradient rounded"
+                          style="width: 50px; height: 50px; flex-shrink: 0"
+                        ></div>
+                        <div style="min-width: 0">
+                          <h6 class="fw-bold text-dark small mb-1">
+                            <a
+                              href="#"
+                              class="text-decoration-none text-dark stretched-link"
+                              >AIコーディングアシスタントの選定基準</a
+                            >
+                          </h6>
+                          <small class="text-muted" style="font-size: 0.75rem"
+                            >Jan 6, 2026</small
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Recent Post 2 -->
+                    <div class="mb-3 pb-3 border-bottom border-light">
+                      <div class="d-flex gap-3 align-items-center">
+                        <div
+                          class="thumb-gradient rounded"
+                          style="width: 50px; height: 50px; flex-shrink: 0"
+                        ></div>
+                        <div style="min-width: 0">
+                          <h6 class="fw-bold text-dark small mb-1">
+                            <a
+                              href="#"
+                              class="text-decoration-none text-dark stretched-link"
+                              >This is another blog post title</a
+                            >
+                          </h6>
+                          <small class="text-muted" style="font-size: 0.75rem"
+                            >Jan 14, 2023</small
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Recent Post 3 -->
+                    <div class="d-flex gap-3 align-items-center">
+                      <div
+                        class="thumb-gradient rounded"
+                        style="width: 50px; height: 50px; flex-shrink: 0"
+                      ></div>
+                      <div style="min-width: 0">
+                        <h6 class="fw-bold text-dark small mb-1">
+                          <a
+                            href="#"
+                            class="text-decoration-none text-dark stretched-link"
+                            >Longer blog post title</a
+                          >
+                        </h6>
+                        <small class="text-muted" style="font-size: 0.75rem"
+                          >Jan 13, 2023</small
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <!-- Footer (共通フッター) -->
     <!-- th:replace で layout/fragment.html の footer フラグメントを読み込みます -->
     <!-- Footer (共通フッター) -->
     <!-- th:replace で layout/fragment.html の footer フラグメントを読み込みます -->
-    <footer th:replace="~{layout/fragment :: footer}" class="mt-5 text-center"></footer>
+    <footer
+      th:replace="~{layout/fragment :: footer}"
+      class="mt-5 text-center"
+    ></footer>
 
     <script src="/js/comment.js"></script>
-</body>
-
+    <script src="/js/intro.js"></script>
+  </body>
 </html>
