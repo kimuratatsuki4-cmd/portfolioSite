@@ -22,8 +22,12 @@ public class PageController {
     @GetMapping("/")
     public String index(org.springframework.ui.Model model) {
         model.addAttribute("latestComments", commentService.getLatestComments());
-        // トップページは最新4件だけを表示
-        model.addAttribute("articles", articleService.getArticles(false));
+        // トップページは最新2件だけを表示
+        java.util.List<com.kimura.portfolio.entity.Article> articles = articleService.getArticles(false);
+        if (articles.size() > 2) {
+            articles = articles.subList(0, 2);
+        }
+        model.addAttribute("articles", articles);
         return "index";
     }
 

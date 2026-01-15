@@ -1,27 +1,23 @@
 /* Google Fonts */
-/* 日本語フォント Noto Sans JP を追加して読みやすくしています */
+
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap");
 
 :root {
-  /* Chic Dark Palette (カラーパレット定義) */
-  /* メイングラデーション: 薄い青から深い紫へ */
+  /* Chic Dark Palette */
   --primary-gradient: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
-  /* アクセントグラデーション: ゴールドからオレンジへ */
   --accent-gradient: linear-gradient(135deg, #fad961 0%, #f76b1c 100%);
 
-  /* Glassmorphism Variables (すりガラス表現用の変数) */
+  /* Glassmorphism Variables */
   --glass-bg: rgba(30, 30, 40, 0.75);
-  /* 半透明の背景色 */
+
   --glass-border: rgba(255, 255, 255, 0.1);
-  /* うっすら白い境界線 */
+
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  /* ぼんやりとした影 */
+
 
   /* Text Colors */
   --text-main: #f0f0f0;
-  /* メインテキスト色（ほぼ白） */
   --text-muted: #b0b0b0;
-  /* 控えめなテキスト色（グレー） */
 
   /* Borders */
   --border-radius-xl: 24px;
@@ -32,7 +28,7 @@ body {
   font-family: "Outfit", "Noto Sans JP", sans-serif;
   /* ベースの背景色（Bootstrapデフォルトの上書き用に !important を使用） */
   background: #0f0c29 !important;
-  /* Dark chic mesh gradient (背景のメッシュグラデーション) */
+  /* Dark chic mesh gradient */
   background-image: radial-gradient(
       at 0% 0%,
       hsla(253, 16%, 7%, 1) 0,
@@ -42,26 +38,24 @@ body {
     radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 0.2) 0, transparent 50%) !important;
   background-color: #0b0b10 !important;
   background-attachment: fixed !important;
-  /* スクロールしても背景を固定 */
+
   color: var(--text-main) !important;
   line-height: 1.8;
   min-height: 100vh;
 }
 
-/* Glassmorphism Classes (すりガラス風カードの基本スタイル) */
+/* Glassmorphism Classes */
 .glass-card {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
-  /* 背景をぼかす */
   -webkit-backdrop-filter: blur(12px);
-  /* Safari対応 */
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-xl);
   box-shadow: var(--glass-shadow);
   color: var(--text-main);
 }
 
-/* Glass Navbar (すりガラス風ナビゲーションバー) */
+/* Glass Navbar */
 .glass-nav {
   background: rgba(15, 15, 25, 0.85) !important;
   backdrop-filter: blur(20px);
@@ -69,7 +63,7 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Gradient Text (文字色をグラデーションにするクラス) */
+/* Gradient Text */
 .text-gradient {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -101,7 +95,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* ナビリンクのホバー・アクティブ時のスタイル */
+
 .nav-link:hover,
 .nav-link.active {
   color: var(--text-main) !important;
@@ -121,7 +115,7 @@ body {
     url("../images/tech_hero_bg.png");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* パララックス効果 */
+  background-attachment: fixed;
 }
 
 h1.display-4 {
@@ -139,7 +133,7 @@ h1.display-4 {
   background-color: transparent !important;
 }
 
-/* ホバー時にカードを浮き上がらせるクラス */
+
 .hover-lift {
   border-radius: var(--border-radius-xl);
   overflow: hidden;
@@ -231,7 +225,7 @@ a.text-primary:hover::after {
   width: 100%;
 }
 
-/* Thumbnail Placeholder (画像の代わりのプレースホルダー背景) */
+/* Thumbnail Placeholder */
 .thumb-gradient {
   background: linear-gradient(
     45deg,
@@ -254,7 +248,7 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Text Overrides for Dark Mode (ダークモード用のテキスト色調整) */
+/* Text Overrides for Dark Mode */
 .text-muted {
   color: var(--text-muted) !important;
 }
@@ -335,15 +329,15 @@ article h2 {
    ----------------------------------------
 */
 
-/* 画面全体を覆うコンテナ */
+
 #intro-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #f8f9fa; /* 仕様書に基づくオフホワイト */
-  z-index: 9999; /* 最前面に表示 */
+  background-color: #f8f9fa;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -351,13 +345,13 @@ article h2 {
   transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
-/* フェードアウト用クラス */
+
 #intro-overlay.fade-out {
   opacity: 0;
   visibility: hidden;
 }
 
-/* アイコンとラインを含むラッパー */
+
 .connection-container {
   display: flex;
   align-items: center;
@@ -365,21 +359,21 @@ article h2 {
   margin-bottom: 20px;
 }
 
-/* アイコンの共通スタイル */
+
 .pc-icon,
 .server-icon {
   font-size: 3rem;
-  color: #3f2b96; /* ブランドカラー（濃い青紫） */
+  color: #3f2b96;
   animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
 }
 
-/* サーバーアイコンは少し遅れて登場 */
+
 .server-icon {
   animation-delay: 0.2s;
-  transition: all 0.3s ease; /* 接続成功時の変化用 */
+  transition: all 0.3s ease;
 }
 
-/* 接続ライン（点線） */
+
 .packet-line {
   width: 150px;
   height: 4px;
@@ -394,23 +388,23 @@ article h2 {
   border-radius: 2px;
 }
 
-/* パケット（移動する丸） */
+
 .packet-dot {
   position: absolute;
   top: 50%;
   left: 0;
   width: 12px;
   height: 12px;
-  background-color: #f76b1c; /* アクセントカラー（オレンジ） */
+  background-color: #f76b1c;
   border-radius: 50%;
   transform: translateY(-50%);
   box-shadow: 0 0 10px rgba(247, 107, 28, 0.6);
-  /* パケット移動アニメーション */
+
   animation: packetMove 1s infinite linear;
-  animation-delay: 0.5s; /* アイコン登場後に開始 */
+  animation-delay: 0.5s;
 }
 
-/* ステータステキスト */
+
 #loading-text {
   font-family: "Outfit", sans-serif;
   font-size: 1.2rem;
@@ -420,12 +414,9 @@ article h2 {
   transition: color 0.3s ease;
 }
 
-/* 
-   Keyframes Definitions 
-   (アニメーションの動きを定義)
-*/
+/* Keyframes Definitions */
 
-/* 弾むような登場アニメーション */
+
 @keyframes bounceIn {
   0% {
     transform: scale(0);
@@ -437,7 +428,7 @@ article h2 {
   }
 }
 
-/* パケットの移動（左から右へ） */
+
 @keyframes packetMove {
   0% {
     left: 0;
@@ -453,4 +444,23 @@ article h2 {
     left: 100%;
     opacity: 0;
   }
+}
+
+/* Local Tweet-like Styles (Moved from blog.html) */
+.hover-bg-light:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+}
+.action-item {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.hover-blue:hover {
+  color: #1d9bf0 !important;
+}
+.hover-green:hover {
+  color: #00ba7c !important;
+}
+.hover-red:hover {
+  color: #f91880 !important;
 }

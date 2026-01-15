@@ -25,4 +25,8 @@ public class ArticleService {
             return articleRepository.findTop4ByOrderByCreatedAtDesc();
         }
     }
+
+    public void saveArticle(Article article) {
+        articleRepository.save(article);
+    }
 }

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
-<!-- Head Fragment (共通ヘッド) -->
-<!-- 全ページで共通して読み込まれるメタ情報やCSSリンクです -->
+
 
 <head th:fragment="head">
     <meta charset="UTF-8">
@@ -18,19 +17,18 @@
 
 <body>
 
-    <!-- Header / Navigation Fragment (共通ナビゲーションバー) -->
-    <!-- th:fragment="header" で定義され、各ページの th:replace で呼び出されます -->
+
     <nav th:fragment="header" class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
         <div class="container">
             <a class="navbar-brand" th:href="@{/}">
                 <i class="fas fa-network-wired me-2"></i>Kate HUB
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/about}">Profile</a>
                     </li> 
@@ -54,13 +52,11 @@
         </div>
     </nav>
 
-    <!-- Footer Fragment (共通フッター) -->
-    <!-- 各ページの最下部に読み込まれます -->
     <footer th:fragment="footer" class="mt-5 text-center">
         <div class="container">
-            <!-- 著作権表記 -->
+
             <p class="mb-0 text-muted">&copy; 2026 Kate. All Rights Reserved.</p>
-            <!-- SNSリンク -->
+
             <div class="mt-2">
                 <a href="https://github.com/kimuratatsuki4-cmd" class="text-muted me-3"><i class="fab fa-github"></i></a>
                 <a href="#" class="text-muted me-3"><i class="fab fa-twitter"></i></a>
@@ -68,12 +64,12 @@
                 <a href="#" class="text-muted me-3"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        <!-- Bootstrap JS -->
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Custom JS (th:src でサーバー実行時のパス解決を行います) -->
+
         <script src="../../static/js/scripts.js" th:src="@{/js/scripts.js}"></script>
     </footer>
 
 </body>
 
-</html>
+</html>     

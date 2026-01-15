@@ -21,22 +21,17 @@ public class Article {
 
     private String authorName;
 
-    // Twitter風UIのために、アイコン画像のパスやユーザーIDっぽいものがあると良い
-    private String authorId; // e.g. @kate_dev
+    private String authorId;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    // いいね数など（ダミー用）
     private int likes;
     private int retweets;
 
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
-        if (this.likes == 0)
-            this.likes = (int) (Math.random() * 100);
-        if (this.retweets == 0)
-            this.retweets = (int) (Math.random() * 50);
+
     }
 }
