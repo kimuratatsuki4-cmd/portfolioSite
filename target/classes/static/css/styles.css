@@ -4,24 +4,24 @@
 
 :root {
   /* Chic Dark Palette */
-  --primary-gradient: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
-  --accent-gradient: linear-gradient(135deg, #fad961 0%, #f76b1c 100%);
+  --primary_gradient: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+  --accent_gradient: linear-gradient(135deg, #fad961 0%, #f76b1c 100%);
 
   /* Glassmorphism Variables */
-  --glass-bg: rgba(30, 30, 40, 0.75);
+  --glass_bg: rgba(30, 30, 40, 0.75);
 
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass_border: rgba(255, 255, 255, 0.1);
 
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --glass_shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 
 
   /* Text Colors */
-  --text-main: #f0f0f0;
-  --text-muted: #b0b0b0;
+  --text_main: #f0f0f0;
+  --text_muted: #b0b0b0;
 
   /* Borders */
-  --border-radius-xl: 24px;
-  --border-radius-pill: 50px;
+  --border_radius_xl: 24px;
+  --border_radius_pill: 50px;
 }
 
 body {
@@ -39,24 +39,24 @@ body {
   background-color: #0b0b10 !important;
   background-attachment: fixed !important;
 
-  color: var(--text-main) !important;
+  color: var(--text_main) !important;
   line-height: 1.8;
   min-height: 100vh;
 }
 
 /* Glassmorphism Classes */
-.glass-card {
-  background: var(--glass-bg);
+.glass_card {
+  background: var(--glass_bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--glass-shadow);
-  color: var(--text-main);
+  border: 1px solid var(--glass_border);
+  border-radius: var(--border_radius_xl);
+  box-shadow: var(--glass_shadow);
+  color: var(--text_main);
 }
 
 /* Glass Navbar */
-.glass-nav {
+.glass_nav {
   background: rgba(15, 15, 25, 0.85) !important;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -64,14 +64,9 @@ body {
 }
 
 /* Gradient Text */
-.text-gradient {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 
-.text-gradient-primary {
+
+.text_gradient_primary {
   background: linear-gradient(to right, #fff 0%, #a8c0ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -82,13 +77,13 @@ body {
 .navbar-brand {
   font-weight: 800;
   font-size: 1.5rem;
-  color: var(--text-main) !important;
+  color: var(--text_main) !important;
   letter-spacing: -0.5px;
 }
 
 .nav-link {
   font-weight: 600;
-  color: var(--text-muted) !important;
+  color: var(--text_muted) !important;
   margin: 0 10px;
   position: relative;
   padding: 0.5rem 1rem !important;
@@ -98,13 +93,13 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--text-main) !important;
+  color: var(--text_main) !important;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
 }
 
 /* Hero/Featured Section Styling */
-.hero-section {
+.hero_section {
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
@@ -134,14 +129,14 @@ h1.display-4 {
 }
 
 
-.hover-lift {
-  border-radius: var(--border-radius-xl);
+.hover_lift {
+  border-radius: var(--border_radius_xl);
   overflow: hidden;
   position: relative;
   z-index: 1;
 }
 
-.hover-lift::before {
+.hover_lift::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -154,7 +149,7 @@ h1.display-4 {
   border-radius: inherit;
 }
 
-.hover-lift:hover {
+.hover_lift:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
   border-color: rgba(255, 255, 255, 0.3);
@@ -173,16 +168,16 @@ h1.display-4 {
 }
 
 .bg-primary {
-  background: var(--primary-gradient) !important;
+  background: var(--primary_gradient) !important;
 }
 
 .bg-success {
-  background: var(--accent-gradient) !important;
+  background: var(--accent_gradient) !important;
 }
 
 /* Buttons & Links */
 .btn-primary {
-  background: var(--primary-gradient);
+  background: var(--primary_gradient);
   border: none;
   box-shadow: 0 4px 15px rgba(63, 43, 150, 0.4);
   transition: all 0.3s ease;
@@ -217,7 +212,7 @@ a.text-primary::after {
   display: block;
   width: 0;
   height: 2px;
-  background: var(--primary-gradient);
+  background: var(--primary_gradient);
   transition: width 0.3s;
 }
 
@@ -226,7 +221,7 @@ a.text-primary:hover::after {
 }
 
 /* Thumbnail Placeholder */
-.thumb-gradient {
+.thumb_gradient {
   background: linear-gradient(
     45deg,
     #1e1e28 25%,
@@ -250,78 +245,74 @@ footer {
 
 /* Text Overrides for Dark Mode */
 .text-muted {
-  color: var(--text-muted) !important;
+  color: var(--text_muted) !important;
 }
 
 .text-dark {
-  color: var(--text-main) !important;
+  color: var(--text_main) !important;
 }
 
 article h2 {
   color: var(--text-main);
 }
 /* Language/Tech Badges */
-.badge-tech {
+.badge_tech {
   font-weight: 500;
   border: 1px solid transparent;
 }
 
-.badge-java {
+.badge_java {
   color: #e76f00 !important;
   background-color: rgba(231, 111, 0, 0.1) !important;
   border-color: rgba(231, 111, 0, 0.3) !important;
 }
 
-.badge-javascript,
-.badge-js {
+.badge_javascript,
+.badge_js {
   color: #f7df1e !important;
   background-color: rgba(247, 223, 30, 0.1) !important;
   border-color: rgba(247, 223, 30, 0.3) !important;
 }
 
-.badge-typescript,
-.badge-ts {
+.badge_typescript,
+.badge_ts {
   color: #3178c6 !important;
   background-color: rgba(49, 120, 198, 0.1) !important;
   border-color: rgba(49, 120, 198, 0.3) !important;
 }
 
-.badge-html {
+.badge_html {
   color: #e34c26 !important;
   background-color: rgba(227, 76, 38, 0.1) !important;
   border-color: rgba(227, 76, 38, 0.3) !important;
 }
 
-.badge-css {
+.badge_css {
   color: #563d7c !important;
   background-color: rgba(86, 61, 124, 0.1) !important;
   border-color: rgba(86, 61, 124, 0.3) !important;
 }
 
-.badge-python {
+.badge_python {
   color: #3572a5 !important;
   background-color: rgba(53, 114, 165, 0.1) !important;
   border-color: rgba(53, 114, 165, 0.3) !important;
 }
 
-.badge-springboot,
-.badge-spring {
+.badge_springboot,
+.badge_spring {
   color: #6db33f !important;
   background-color: rgba(109, 179, 63, 0.1) !important;
   border-color: rgba(109, 179, 63, 0.3) !important;
 }
 
-.badge-docker {
+.badge_docker {
   color: #2496ed !important;
   background-color: rgba(36, 150, 237, 0.1) !important;
   border-color: rgba(36, 150, 237, 0.3) !important;
 }
 
-.badge-default {
-  color: #a8c0ff !important;
-  background-color: rgba(168, 192, 255, 0.1) !important;
-  border-color: rgba(168, 192, 255, 0.3) !important;
-}
+
 
 /* 
    ----------------------------------------
@@ -330,7 +321,7 @@ article h2 {
 */
 
 
-#intro-overlay {
+#intro_overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -346,13 +337,13 @@ article h2 {
 }
 
 
-#intro-overlay.fade-out {
+#intro_overlay.fade_out {
   opacity: 0;
   visibility: hidden;
 }
 
 
-.connection-container {
+.connection_container {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -360,21 +351,21 @@ article h2 {
 }
 
 
-.pc-icon,
-.server-icon {
+.pc_icon,
+.server_icon {
   font-size: 3rem;
   color: #3f2b96;
   animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
 }
 
 
-.server-icon {
+.server_icon {
   animation-delay: 0.2s;
   transition: all 0.3s ease;
 }
 
 
-.packet-line {
+.packet_line {
   width: 150px;
   height: 4px;
   background: repeating-linear-gradient(
@@ -389,7 +380,7 @@ article h2 {
 }
 
 
-.packet-dot {
+.packet_dot {
   position: absolute;
   top: 50%;
   left: 0;
@@ -405,7 +396,7 @@ article h2 {
 }
 
 
-#loading-text {
+#loading_text {
   font-family: "Outfit", sans-serif;
   font-size: 1.2rem;
   color: #555;
@@ -447,20 +438,20 @@ article h2 {
 }
 
 /* Local Tweet-like Styles (Moved from blog.html) */
-.hover-bg-light:hover {
+.hover_bg_light:hover {
   background-color: rgba(255, 255, 255, 0.05);
   cursor: pointer;
 }
-.action-item {
+.action_item {
   cursor: pointer;
   transition: color 0.2s;
 }
-.hover-blue:hover {
+.hover_blue:hover {
   color: #1d9bf0 !important;
 }
-.hover-green:hover {
+.hover_green:hover {
   color: #00ba7c !important;
 }
-.hover-red:hover {
+.hover_red:hover {
   color: #f91880 !important;
 }

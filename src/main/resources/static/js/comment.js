@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addCommentToDom(comment) {
     const commentDiv = document.createElement("div");
-    commentDiv.className = "d-flex gap-3 mb-4 comment-item";
+    commentDiv.className = "d-flex gap-3 mb-4 comment_item";
     // Add minimal animation
     commentDiv.style.animation = "fadeIn 0.5s ease-out";
 
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Insert after the header.
     // The structure is #commentList > h5, then comments.
-    // We want to insert after the last h5, or as the first 'div.comment-item'.
+    // We want to insert after the last h5, or as the first 'div.comment_item'.
     const header = commentList.querySelector("h5");
     if (header && header.nextSibling) {
       commentList.insertBefore(commentDiv, header.nextSibling);

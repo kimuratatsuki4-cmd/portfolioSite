@@ -21,15 +21,15 @@
   <body>
     <!-- Intro Overlay (Server Connect Animation) -->
     <!-- サーバー接続演出：詳細は intro.js と styles.css を参照 -->
-    <div id="intro-overlay">
-      <div class="connection-container">
-        <i class="fas fa-laptop pc-icon"></i>
-        <div class="packet-line">
-          <span class="packet-dot"></span>
+    <div id="intro_overlay">
+      <div class="connection_container">
+        <i class="fas fa-laptop pc_icon"></i>
+        <div class="packet_line">
+          <span class="packet_dot"></span>
         </div>
-        <i class="fas fa-server server-icon"></i>
+        <i class="fas fa-server server_icon"></i>
       </div>
-      <p id="loading-text">Connecting to Kate's Hub...</p>
+      <p id="loading_text">Connecting to Kate's Hub...</p>
     </div>
 
     <!-- Navbar -->
@@ -40,7 +40,7 @@
       <!-- 固定ナビゲーションバーの高さ分の余白を追加 -->
       <div style="padding-top: 70px">
         <!-- Hero Section (トップのウェルカムメッセージ) -->
-        <section class="hero-section">
+        <section class="hero_section">
           <div class="container">
             <div class="row g-5 align-items-center">
               <div class="col-lg-8">
@@ -48,7 +48,7 @@
                   >Welcome to my Portfolio</span
                 >
                 <h1 class="display-4 fw-bold mb-4" style="font-style: italic">
-                  <span class="text-gradient-primary">Kate HUB</span
+                  <span class="text_gradient_primary">Kate HUB</span
                   ><br />Portfolio & Blog
                 </h1>
                 <p class="lead text-muted mb-4">
@@ -70,9 +70,9 @@
             <div class="row g-4">
               <!-- Card 1: Self Introduction (自己紹介カード) -->
               <div class="col-md-6 col-lg-4">
-                <div class="card h-100 glass-card hover-lift">
+                <div class="card h-100 glass_card hover_lift">
                   <div
-                    class="thumb-gradient"
+                    class="thumb_gradient"
                     style="
                       height: 160px;
                       display: flex;
@@ -98,9 +98,9 @@
 
               <!-- Card 2: Works (成果物カード) -->
               <div class="col-md-6 col-lg-4">
-                <div class="card h-100 glass-card hover-lift">
+                <div class="card h-100 glass_card hover_lift">
                   <div
-                    class="thumb-gradient"
+                    class="thumb_gradient"
                     style="
                       height: 160px;
                       display: flex;
@@ -125,9 +125,9 @@
 
               <!-- Card 4: Skills (スキルセットカード) -->
               <div class="col-md-6 col-lg-4">
-                <div class="card h-100 glass-card hover-lift">
+                <div class="card h-100 glass_card hover_lift">
                   <div
-                    class="thumb-gradient"
+                    class="thumb_gradient"
                     style="
                       height: 160px;
                       display: flex;
@@ -152,9 +152,9 @@
 
               <!-- Card 5: Contact (お問い合わせカード) -->
               <div class="col-md-6 col-lg-4">
-                <div class="card h-100 glass-card hover-lift">
+                <div class="card h-100 glass_card hover_lift">
                   <div
-                    class="thumb-gradient"
+                    class="thumb_gradient"
                     style="
                       height: 160px;
                       display: flex;
@@ -179,9 +179,9 @@
 
               <!-- Card 6: Blog (ブログカード) -->
               <div class="col-md-6 col-lg-4">
-                <div class="card h-100 glass-card hover-lift">
+                <div class="card h-100 glass_card hover_lift">
                   <div
-                    class="thumb-gradient"
+                    class="thumb_gradient"
                     style="
                       height: 160px;
                       display: flex;
@@ -219,7 +219,7 @@
                   class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2"
                 >
                   <h4
-                    class="fw-bold mb-0 text-gradient-primary"
+                    class="fw-bold mb-0 text_gradient_primary"
                     style="font-style: italic"
                   >
                     Latest Articles
@@ -232,7 +232,7 @@
                 </div>
 
                 <!-- Dynamic Latest Articles -->
-                <div th:each="article : ${articles}" class="glass-card p-4 mb-5">
+                <div th:each="article : ${articles}" class="glass_card p-4 mb-5">
                   <article>
                     <h2 class="display-6 fw-bold mb-3" th:text="${article.title}">
                       Article Title
@@ -253,13 +253,13 @@
 
                 <!-- Comments Section -->
                 <h4
-                  class="fw-bold mb-4 border-bottom pb-2 d-inline-block text-gradient-primary"
+                  class="fw-bold mb-4 border-bottom pb-2 d-inline-block text_gradient_primary"
                   style="font-style: italic"
                 >
                   Comments
                 </h4>
 
-                <div class="glass-card p-4 mb-5">
+                <div class="glass_card p-4 mb-5">
                   <!-- Comment Form -->
                   <div class="mb-5">
                     <h5 class="fw-bold mb-3 small text-muted text-uppercase">
@@ -301,7 +301,7 @@
                     <!-- Thymeleaf Loop -->
                     <div
                       th:each="comment : ${latestComments}"
-                      class="d-flex gap-3 mb-4 comment-item"
+                      class="d-flex gap-3 mb-4 comment_item"
                     >
                       <div class="flex-shrink-0">
                         <div

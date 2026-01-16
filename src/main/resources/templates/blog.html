@@ -30,7 +30,7 @@
                         </div>
 
 
-                        <div class="glass-card p-3 mb-4 d-none d-md-block">
+                        <div class="glass_card p-3 mb-4 d-none d-md-block">
                             <form th:action="@{/blog/post}" method="post">
                                 <div class="d-flex gap-3">
                                     <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; overflow:hidden;">
@@ -60,7 +60,7 @@
 
                         <div class="d-flex flex-column gap-3">
 
-                            <div th:each="article : ${articles}" class="glass-card p-3 hover-effect cursor-pointer" style="cursor: pointer; transition: background 0.2s;">
+                            <div th:each="article : ${articles}" class="glass_card p-3 hover-effect cursor-pointer" style="cursor: pointer; transition: background 0.2s;">
                                 <div class="d-flex gap-3">
 
                                     <div class="flex-shrink-0">
@@ -90,23 +90,23 @@
 
 
                                         <div class="d-flex justify-content-between text-muted mt-3" style="max-width: 400px;">
-                                            <div class="action-item d-flex align-items-center gap-2 hover-blue">
+                                            <div class="action_item d-flex align-items-center gap-2 hover_blue">
                                                 <i class="far fa-comment"></i>
                                                 <span class="small">0</span>
                                             </div>
-                                            <div class="action-item d-flex align-items-center gap-2 hover-green">
+                                            <div class="action_item d-flex align-items-center gap-2 hover_green">
                                                 <i class="fas fa-retweet"></i>
                                                 <span class="small" th:text="${article.retweets}">10</span>
                                             </div>
-                                            <div class="action-item d-flex align-items-center gap-2 hover-red">
+                                            <div class="action_item d-flex align-items-center gap-2 hover_red">
                                                 <i class="far fa-heart"></i>
                                                 <span class="small" th:text="${article.likes}">20</span>
                                             </div>
-                                            <div class="action-item d-flex align-items-center gap-2 hover-bg-light">
+                                            <div class="action_item d-flex align-items-center gap-2 hover_bg_light">
                                                 <i class="far fa-chart-bar"></i>
                                                 <span class="small">1.2K</span>
                                             </div>
-                                            <div class="action-item hover-blue">
+                                            <div class="action_item hover_blue">
                                                 <i class="far fa-share-square"></i>
                                             </div>
                                         </div>
@@ -134,20 +134,20 @@
 
                     <div class="col-lg-4 col-12 mt-4 mt-lg-0">
                         <div class="position-sticky" style="top: 100px;">
-                            <div class="glass-card py-3 px-0">
+                            <div class="glass_card py-3 px-0">
                                 <h5 class="fw-bold px-3 mb-3 text-white">Trends for you</h5>
                                 
-                                <div class="px-3 py-2 hover-bg-light">
+                                <div class="px-3 py-2 hover_bg_light">
                                     <small class="text-muted d-block">Technology · Trending</small>
                                     <h6 class="fw-bold text-white mb-0">#Java21</h6>
                                     <small class="text-muted">50.4K posts</small>
                                 </div>
-                                <div class="px-3 py-2 hover-bg-light">
+                                <div class="px-3 py-2 hover_bg_light">
                                     <small class="text-muted d-block">Programming · Trending</small>
                                     <h6 class="fw-bold text-white mb-0">Spring Boot</h6>
                                     <small class="text-muted">125K posts</small>
                                 </div>
-                                <div class="px-3 py-2 hover-bg-light">
+                                <div class="px-3 py-2 hover_bg_light">
                                     <small class="text-muted d-block">Design · Trending</small>
                                     <h6 class="fw-bold text-white mb-0">#Glassmorphism</h6>
                                     <small class="text-muted">15.2K posts</small>

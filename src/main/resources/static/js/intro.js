@@ -1,10 +1,10 @@
 // 初回アクセス時のみアニメーションを実行するための制御
 document.addEventListener('DOMContentLoaded', () => {
     // 要素の取得
-    const overlay = document.getElementById('intro-overlay');
-    const serverIcon = document.querySelector('.server-icon');
-    const loadingText = document.getElementById('loading-text');
-    const packet = document.querySelector('.packet-dot');
+    const overlay = document.getElementById('intro_overlay');
+    const serverIcon = document.querySelector('.server_icon');
+    const loadingText = document.getElementById('loading_text');
+    const packet = document.querySelector('.packet_dot');
 
     // オーバーレイが存在しない場合は処理を中断
     if (!overlay) return;
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------
     function finishAnimation() {
         // フェードアウトクラスを追加（CSSで opacity: 0 を設定）
-        overlay.classList.add('fade-out');
+        overlay.classList.add('fade_out');
         
         // CSSのtransition完了後にDOMから非表示にする
         setTimeout(() => {

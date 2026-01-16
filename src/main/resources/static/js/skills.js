@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 2. 資格リストのアニメーション (各アイテムを順番に表示)
     // 左から右へスライドしながらフェードイン
-    const certItems = document.querySelectorAll('.certification-item');
+    const certItems = document.querySelectorAll('.certification_item');
     certItems.forEach((item, index) => {
         setTimeout(() => {
             item.classList.add('visible');
